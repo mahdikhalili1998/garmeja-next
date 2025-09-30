@@ -1,0 +1,16 @@
+import React from "react";
+import { LayoutProps } from "@/types/LayoutProps";
+import Header from "./Header";
+import Footer from "./Footer";
+
+function Layout({ children }: LayoutProps) {
+  return (
+    <div>
+      <Header />
+      <div>{children}</div>
+      <Footer />
+    </div>
+  );
+}
+
+export default Layout;
