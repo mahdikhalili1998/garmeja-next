@@ -2,59 +2,49 @@
 import { fakeLocation } from "@/constant/header";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 import Image from "next/image";
 
 export default function LovelyPlace() {
-  return (
-    <Swiper
-      slidesPerView={2} // تعداد اسلایدهای افقی
-      spaceBetween={30}
-      pagination={{ clickable: true }}
-      //   modules={[Pagination]}
-      className="mySwiper"
-    >
-      {fakeLocation.map((item, index) => (
-        <SwiperSlide key={index}>
-          {/* container عمودی برای دو کارت */}
-          <div className="flex flex-col gap-4">
-            {/* کارت اول */}
-            <div className="flex items-center gap-2 rounded-lg text-black">
-              <Image
-                src={item.img}
-                width={120}
-                height={120}
-                alt={item.location}
-                className="size-[5rem] rounded-full"
-                priority
-              />
-              <div className="flex flex-col items-start gap-1">
-                <span className="text-xs">اجاره ویلا در</span>
-                <span className="text-xs font-bold">{item.location}</span>
-                <span className="text-xs">10097 اقامتگاه</span>
-              </div>
-            </div>
+  const chunked = [];
+  for (let i = 0; i < fakeLocation.length; i += 2) {
+    chunked.push(fakeLocation.slice(i, i + 2));
+  }
 
-            {/* کارت دوم */}
-            <div className="flex items-center gap-2 rounded-lg text-black">
-              <Image
-                src={item.img}
-                width={120}
-                height={120}
-                alt={item.location}
-                className="size-[5rem] rounded-4xl"
-                priority
-              />
-              <div className="flex flex-col items-start gap-1">
-                <span className="text-xs">اجاره ویلا در</span>
-                <span className="text-xs font-bold">{item.location}</span>
-                <span className="text-xs">10097 اقامتگاه</span>
-              </div>
+  return (
+    <>
+      <h1 className="text-titleColor my-4 mr-3 text-lg font-bold">
+        مقصد های محبوب
+      </h1>
+      <Swiper slidesPerView={2} spaceBetween={30}>
+        {chunked.map((group, index) => (
+          <SwiperSlide key={index}>
+            <div className="grid grid-cols-1 gap-4">
+              {group.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 rounded-lg text-black"
+                >
+                  <Image
+                    src={item.img}
+                    width={120}
+                    height={120}
+                    alt={item.location}
+                    className="border-borderColor size-[5rem] rounded-full border-2 border-solid"
+                    priority
+                  />
+                  <div className="flex flex-col items-start gap-1">
+                    <span className="text-xs">اجاره ویلا در</span>
+                    <span className="text-xs font-bold text-orange-600">
+                      {item.location}
+                    </span>
+                    <span className="text-xs">10097 اقامتگاه</span>
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 }

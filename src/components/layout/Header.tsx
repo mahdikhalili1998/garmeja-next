@@ -68,14 +68,14 @@ function Header() {
       {openMenu ? (
         <span
           onClick={() => setOpenMenu(false)}
-          className={`absolute z-40 mt-14 -ml-1 flex h-10 w-8 cursor-pointer items-center justify-center rounded-l-full bg-white/60 pl-1 text-orange-600 transition-transform duration-300 ${openMenu ? "-translate-x-52" : "translate-x-0"} `}
+          className={`text-iconColor absolute z-40 mt-14 -ml-1 flex h-10 w-8 cursor-pointer items-center justify-center rounded-l-full bg-white/60 pl-1 transition-transform duration-300 ${openMenu ? "-translate-x-52" : "translate-x-0"} `}
         >
           <FaAnglesRight className="animate-move-left" />
         </span>
       ) : (
         <span
           onClick={() => setOpenMenu(true)}
-          className={`absolute z-40 mt-14 -mr-1 flex h-10 w-8 cursor-pointer items-center justify-center rounded-l-full bg-white/60 text-orange-600 transition-transform duration-300 ${openMenu ? "-translate-x-52" : "translate-x-0"} `}
+          className={`text-iconColor absolute z-40 mt-14 -mr-1 flex h-10 w-8 cursor-pointer items-center justify-center rounded-l-full bg-white/60 transition-transform duration-300 ${openMenu ? "-translate-x-52" : "translate-x-0"} `}
         >
           <FaAnglesLeft className="animate-move-left" />
         </span>
@@ -112,7 +112,7 @@ function Header() {
               key={index}
               className="flex flex-col items-center justify-center gap-2"
             >
-              <span className="text-2xl text-orange-500">{item.icon}</span>
+              <span className="text-iconColor text-2xl">{item.icon}</span>
               <span className="text-xs font-bold text-white">{item.title}</span>
             </div>
           ))}
@@ -126,7 +126,7 @@ function Header() {
             onChange={(e) => setSearchValue(e.target.value)}
             className="text-bold w-full rounded-lg bg-slate-800/10 py-2 pr-2 text-sm backdrop-blur-sm placeholder:pr-2 placeholder:text-sm placeholder:font-bold placeholder:text-white focus:outline-none"
           />
-          <span className="-scale-x-100 transform rounded-full bg-orange-500 p-3 text-xl font-bold text-white">
+          <span className="bg-iconColor -scale-x-100 transform rounded-full p-3 text-xl font-bold text-white">
             <BsSearch />
           </span>
         </div>
