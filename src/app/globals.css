@@ -1,10 +1,15 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 @theme inline {
   --font-mainFont: "IRANSansXFaNum", sans-serif;
   --blur-2xs: 2px;
   --color-borderColor: oklch(64.6% 0.222 41.116); /*600*/
-  --color-iconColor: oklch(70.5% 0.213 47.604); /*500*/
+  --color-mainbg: #fa5a2a;
+  --color-iconColor: #fa5a2a;
   --color-titleColor: oklch(40.8% 0.123 38.172); /*900*/
 }
 

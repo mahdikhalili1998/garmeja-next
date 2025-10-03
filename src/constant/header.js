@@ -25,3 +25,9 @@ export const fakeLocation = [
   { img: "/image/m2.jpg", location: "بجنورد" },
   { img: "/image/m2.jpg", location: "بروجرد" },
 ];
+
+export const ctabutton = [
+  { img: "/image/sea.jpg", title: "دریا", id: "sea" },
+  { img: "/image/shakhes.jpg", title: "شاخص", id: "shakhes" },
+  { img: "/image/forest.jpg", title: "جنگل", id: "forest" },
+];

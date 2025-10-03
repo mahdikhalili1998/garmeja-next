@@ -8,7 +8,7 @@ import { FaStar } from "react-icons/fa";
 
 function CheapLocation() {
   return (
-    <div>
+    <div id="forest">
       <h1 className="text-titleColor mt-4 mr-3 text-lg font-bold">
         اقامتگاه های مقرون به صرفه
       </h1>

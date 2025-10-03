@@ -2,15 +2,20 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { getRandomImage } from "@/functions/Header";
-import { imageSrc, headerShortcut } from "@/constant/header";
+import { imageSrc, headerShortcut, ctabutton } from "@/constant/header";
 import { BsSearch } from "react-icons/bs";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 
 function Header() {
-  const [backgroundImg] = useState(getRandomImage(imageSrc)); //تصویر تصادفی بک گراند
+  const [backgroundImg, setBackgroundImg] = useState<string>("");
+  // const [backgroundImg] = useState(getRandomImage(imageSrc)); //تصویر تصادفی بک گراند
   const [searchValue, setSearchValue] = useState<string>(""); //مخصوص مقدار سرچ شده
   const [openMenu, setOpenMenu] = useState<boolean>(false); // مخصوص کشوی منو
   const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setBackgroundImg(getRandomImage(imageSrc));
+  }, []);
 
   // بسته شدن کشو با کلیک خارج
   useEffect(() => {
@@ -104,9 +109,9 @@ function Header() {
       </div>
 
       {/* میانبرها و سرچ بار */}
-      <div className="relative z-10 mt-44">
+      <div className="relative z-10 mx-4 mt-44 space-y-4">
         {/* میانبرها */}
-        <div className="backdrop-blur-2xs mx-4 flex items-center justify-between rounded-lg border-[1px] border-solid border-white bg-white/30 px-2 py-2">
+        <div className="backdrop-blur-2xs flex items-center justify-between rounded-lg border-[1px] border-solid border-white bg-white/30 px-2 py-2">
           {headerShortcut.map((item, index) => (
             <div
               key={index}
@@ -118,7 +123,7 @@ function Header() {
           ))}
         </div>
         {/* سرچ بار */}
-        <div className="backdrop-blur-2xs mx-4 mt-4 flex items-center gap-1 rounded-lg border-[1px] border-solid border-white bg-white/30 px-3 py-2">
+        <div className="backdrop-blur-2xs flex items-center gap-1 rounded-lg border-[1px] border-solid border-white bg-white/30 px-3 py-2">
           <input
             type="text"
             value={searchValue}
@@ -129,6 +134,28 @@ function Header() {
           <span className="bg-iconColor -scale-x-100 transform rounded-full p-3 text-xl font-bold text-white">
             <BsSearch />
           </span>
+        </div>
+        {/* دکمه های cta  */}
+        <div className="flex items-center justify-around">
+          {ctabutton.map((item, index) => (
+            <a
+              href={`#${item.id}`}
+              key={index}
+              className="bg-back backdrop-blur-2xs flex flex-col items-center justify-center gap-1 rounded-xl px-2 py-1 text-xs font-bold text-white"
+            >
+              <span>
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={300}
+                  height={300}
+                  priority
+                  className="border-borderColor size-[3rem] rounded-full border-2"
+                />
+              </span>
+              <span>{item.title}</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>

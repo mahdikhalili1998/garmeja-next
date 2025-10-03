@@ -5,7 +5,7 @@ import SiteFeature from "../module/SiteFeature";
 
 function MainPage() {
   return (
-    <div className="mt-6 space-y-14 pr-1 pb-80">
+    <div className="mt-6 space-y-14 pr-1 pb-20">
       <LovelyPlace />
       <LandMarkLocation />
       <CheapLocation />

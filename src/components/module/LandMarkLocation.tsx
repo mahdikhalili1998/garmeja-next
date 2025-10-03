@@ -8,7 +8,7 @@ import { FaStar } from "react-icons/fa";
 
 function LandMarkLocation() {
   return (
-    <div>
+    <div id="shakhes">
       <h1 className="text-titleColor mt-4 mr-3 text-lg font-bold">
         اقامتگاه های شاخص
       </h1>
