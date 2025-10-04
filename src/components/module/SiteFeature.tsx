@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 
 export default function SiteFeature() {
   return (
-    <>
+    <div className="900:w-[50rem] mx-auto">
       <Swiper
         slidesPerView={1.8}
         spaceBetween={30}
@@ -37,6 +37,6 @@ export default function SiteFeature() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </div>
   );
 }

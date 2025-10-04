@@ -2,9 +2,16 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { getRandomImage } from "@/functions/Header";
-import { imageSrc, headerShortcut, ctabutton } from "@/constant/header";
+import {
+  imageSrc,
+  headerShortcut,
+  ctabutton,
+  menuOptionList,
+} from "@/constant/header";
 import { BsSearch } from "react-icons/bs";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
+import Link from "next/link";
+import { IoIosPerson } from "react-icons/io";
 
 function Header() {
   const [backgroundImg, setBackgroundImg] = useState<string>("");
@@ -97,19 +104,40 @@ function Header() {
         ref={menuRef}
         className={`fixed top-0 right-0 z-30 h-full w-52 transform bg-white/60 shadow-lg backdrop-blur-lg transition-transform duration-300 ${openMenu ? "translate-x-0" : "translate-x-full"} `}
       >
-        <div className="p-4">
-          <h2 className="mb-4 text-xl font-bold text-gray-800">منو</h2>
-          <ul className="space-y-3">
-            <li>خانه</li>
-            <li>درباره ما</li>
-            <li>خدمات</li>
-            <li>تماس با ما</li>
-          </ul>
+        <div className="flex h-full flex-col">
+          <Link
+            onClick={() => setOpenMenu(false)}
+            href={"/"}
+            className="border-mainbg my-5 border-b-1 pb-4"
+          >
+            <div className="flex items-center justify-center gap-2">
+              <span className="border-mainbg rounded-full border-2 p-2">
+                <IoIosPerson className="text-mainbg text-2xl" />
+              </span>
+              <span className="text-titleColor font-medium">
+                ورود / ثبت نام
+              </span>
+            </div>
+          </Link>
+          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+            {menuOptionList.map((item, index) => (
+              <Link
+                className="flex items-center gap-2 space-y-3"
+                href={"/"}
+                key={index}
+              >
+                <span className="text-mainbg text-xl">{item.icon}</span>
+                <span className="text-titleColor -mt-2 text-sm font-semibold">
+                  {item.title}
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* میانبرها و سرچ بار */}
-      <div className="relative z-10 mx-4 mt-44 space-y-4">
+      <div className="440:w-[24rem] 900:w-[32rem] 440:mx-auto relative z-10 mx-4 mt-44 space-y-4">
         {/* میانبرها */}
         <div className="backdrop-blur-2xs flex items-center justify-between rounded-lg border-[1px] border-solid border-white bg-white/30 px-2 py-2">
           {headerShortcut.map((item, index) => (

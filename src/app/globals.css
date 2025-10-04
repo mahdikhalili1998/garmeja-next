@@ -11,6 +11,9 @@ html {
   --color-mainbg: #fa5a2a;
   --color-iconColor: #fa5a2a;
   --color-titleColor: oklch(40.8% 0.123 38.172); /*900*/
+  --breakpoint-440: 440px;
+  --breakpoint-640: 640px;
+  --breakpoint-900: 900px;
 }
 
 @keyframes move-left {

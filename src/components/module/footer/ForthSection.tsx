@@ -1,59 +1,107 @@
-import React from "react";
-import { IoLocationOutline } from "react-icons/io5";
-import { BsTelephone } from "react-icons/bs";
-import { IoLogoWhatsapp } from "react-icons/io5";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
-
+import FooterBox from "@/components/element/FooterBox";
+import { bioText } from "@/constant/other";
+import { motion, AnimatePresence } from "framer-motion";
+import SocialMedia from "@/components/element/SocialMedia";
 function ForthSection() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <div>
-      <div className="mx-3 my-6 flex items-center justify-around gap-3">
-        <Image
-          src="/image/enamad.png"
-          alt="anadam"
-          width={300}
-          height={300}
-          priority
-          className="size-[5rem]"
-        />
-        <Image
-          src="/image/gardeshgari.jpg"
-          alt="gardeshgari"
-          width={300}
-          height={300}
-          priority
-          className="size-[5rem]"
-        />
-        <Image
-          src="/image/park.png"
-          alt="park"
-          width={300}
-          height={300}
-          priority
-          className="size-[5rem]"
-        />
+      {/* مجوز ها و توضیح برای دستکتاپ */}
+      <div className="mt-6 flex items-center justify-around">
+        {/* توضیح  */}
+        <div className="900:block hidden w-1/2">
+          <div className="flex items-center gap-2">
+            <Image
+              src={"/image/logo.png"}
+              width={300}
+              height={300}
+              priority
+              alt="logo"
+              className="size-[4rem]"
+            />
+            <h1 className="text-titleColor font-bold">
+              شرکت امی کوچ گیل ( گرمه جا )
+            </h1>
+          </div>
+          <div className="">
+            <AnimatePresence initial={false}>
+              <motion.div
+                key={showMore ? "expanded" : "collapsed"}
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="overflow-hidden"
+              >
+                <p
+                  className={`mt-5 text-sm/8 text-slate-500 transition-all duration-500 ${
+                    showMore ? "" : "line-clamp-3"
+                  }`}
+                >
+                  {bioText}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+            <div className="mx-auto w-max">
+              {" "}
+              <button
+                onClick={() => setShowMore((prev) => !prev)}
+                className="bg-mainbg mt-2 rounded-lg px-2 py-1 text-xs font-semibold text-white"
+              >
+                {showMore ? "بستن متن" : "مشاهده بیشتر"}
+              </button>
+            </div>
+          </div>
+        </div>
+        {/* مجوزها */}
+        <div className="900:gap-10 mx-3 my-6 flex items-center justify-around gap-3">
+          <Image
+            src="/image/enamad.png"
+            alt="anadam"
+            width={300}
+            height={300}
+            priority
+            className="size-[5rem]"
+          />
+          <Image
+            src="/image/gardeshgari.jpg"
+            alt="gardeshgari"
+            width={300}
+            height={300}
+            priority
+            className="size-[5rem]"
+          />
+          <Image
+            src="/image/park.png"
+            alt="park"
+            width={300}
+            height={300}
+            priority
+            className="size-[5rem]"
+          />
+        </div>
       </div>
-      <ul className="bg-mainbg mx-3 flex flex-col gap-5 rounded-md p-4 text-xs font-semibold text-white">
-        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-white px-[10px] font-bold">
-          <IoLocationOutline className="text-lg" />
-          <span>آدرس: گیلان ، آستانه اشرفیه ، پارک ساحلی</span>
-        </li>
-        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-white px-[10px] font-bold">
-          <BsTelephone className="text-lg" />
-          <span>شماره تماس : 01391009113</span>
-        </li>
-        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-white px-[10px] font-bold">
-          <IoLogoWhatsapp className="text-lg" />
-          <span>پشتیبانی آنلاین : 09118327158</span>
-        </li>
-        <li className="flex items-center gap-[10px] border-r-[3px] border-solid border-white px-[10px] font-bold">
-          <span>شنبه تا چهارشنبه: 8 الی 16 - پنجشنبه: 8 الی 13</span>
-        </li>
-      </ul>
-      <p className="bg-mainbg my-6 w-full px-3 py-3 text-center text-sm font-medium text-white">
+      <span className="900:hidden">
+        <FooterBox />
+      </span>
+      <p className="bg-mainbg 900:hidden my-6 w-full px-3 py-3 text-center text-sm font-medium text-white">
         تمامی حقوق این سایت متعلق به سایت{" "}
         <span className="font-semibold text-blue-600">گرمه جا</span> میباشد
       </p>
+      <div className="900:flex mt-8 hidden items-center justify-between bg-gray-600 p-4">
+        <p className="font-bold text-white">
+          تمام حقوق مادی و معنوی این سایت متعلق به شرکت{" "}
+          <span className="text-mainbg text-sm font-semibold">گرمه جا </span> می
+          باشد .
+        </p>
+        <div>
+          <SocialMedia />
+        </div>
+      </div>
     </div>
   );
 }

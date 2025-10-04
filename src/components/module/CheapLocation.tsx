@@ -2,9 +2,12 @@
 import { landMarkPlace } from "@/constant/landMarkPlace";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "@/styles/landMark.module.css";
 import Image from "next/image";
 import { shortText, formatNumber } from "@/functions/function";
 import { FaStar } from "react-icons/fa";
+import { Navigation } from "swiper/modules";
 
 function CheapLocation() {
   return (
@@ -15,7 +18,23 @@ function CheapLocation() {
       <h3 className="text-iconColor mt-2 mr-3 mb-4 text-sm font-medium">
         اﻗﺎﻣﺘﮕﺎه‌ﻫﺎی متفاوت و جذاب ﺑﺮای اﻓﺮاد ﺧﺎص{" "}
       </h3>
-      <Swiper slidesPerView={1.2} spaceBetween={30}>
+      <Swiper
+        slidesPerView={1.2}
+        navigation={true}
+        modules={[Navigation]}
+        breakpoints={{
+          440: {
+            slidesPerView: 1.8,
+          },
+          540: {
+            slidesPerView: 2.2,
+          },
+          740: {
+            slidesPerView: 3.2,
+          },
+        }}
+        spaceBetween={30}
+      >
         {landMarkPlace.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="space-y-2">

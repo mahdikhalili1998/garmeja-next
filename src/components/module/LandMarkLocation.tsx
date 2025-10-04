@@ -2,9 +2,12 @@
 import { landMarkPlace } from "@/constant/landMarkPlace";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/navigation";
+import "@/styles/landMark.module.css";
 import Image from "next/image";
 import { shortText, formatNumber } from "@/functions/function";
 import { FaStar } from "react-icons/fa";
+import { Navigation } from "swiper/modules";
 
 function LandMarkLocation() {
   return (
@@ -15,7 +18,23 @@ function LandMarkLocation() {
       <h3 className="text-iconColor mt-2 mr-3 mb-4 text-sm font-medium">
         گلچینی از اﻗﺎﻣﺘﮕﺎه‌ﻫﺎی ﺑﺎکیفیت ﺑﺎ میزبانهای مهمان نواز
       </h3>
-      <Swiper slidesPerView={1.2} spaceBetween={30}>
+      <Swiper
+        slidesPerView={1.2}
+        navigation={true}
+        modules={[Navigation]}
+        breakpoints={{
+          440: {
+            slidesPerView: 1.8,
+          },
+          540: {
+            slidesPerView: 2.2,
+          },
+          740: {
+            slidesPerView: 3.2,
+          },
+        }}
+        spaceBetween={30}
+      >
         {landMarkPlace.map((item, index) => (
           <SwiperSlide key={index}>
             <div className="space-y-2">
@@ -28,8 +47,7 @@ function LandMarkLocation() {
                   priority
                   className="h-auto rounded-lg"
                 />
-
-                {/* فید آبی از پایین دقیقا اندازه عکس */}
+                {/* فید  */}
                 <div className="absolute bottom-0 left-0 h-16 w-full rounded-b-lg bg-gradient-to-t from-blue-700/80 to-transparent"></div>
 
                 {/* متن روی فید */}
