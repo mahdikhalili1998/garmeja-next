@@ -24,22 +24,22 @@ export const headerShortcut = [
 export const imageSrc = [
   "/image/bg-1.jpg",
   "/image/bg-4.jpg",
-  "/image/bg-3.png",
+  // "/image/bg-3.png",
 ];
 
 export const fakeLocation = [
-  { img: "/image/savadkoh.jpg", location: "رشت" },
-  { img: "/image/gardaneHeyran.jpg", location: "لاهیجان" },
-  { img: "/image/chaboksar.jpg", location: "لندن" },
-  { img: "/image/savadkoh.jpg", location: "سوییس" },
-  { img: "/image/gardaneHeyran.jpg", location: "تگزاس" },
-  { img: "/image/chaboksar.jpg", location: "دوبی" },
-  { img: "/image/savadkoh.jpg", location: "آنکارا" },
-  { img: "/image/gardaneHeyran.jpg", location: "آنتالیا" },
-  { img: "/image/savadkoh.jpg", location: "مشهد" },
-  { img: "/image/savadkoh.jpg", location: "بیرجند" },
-  { img: "/image/savadkoh.jpg", location: "بجنورد" },
-  { img: "/image/savadkoh.jpg", location: "بروجرد" },
+  { img: "/image/m2.jpg", location: "رشت" },
+  { img: "/image/m2.jpg", location: "لاهیجان" },
+  { img: "/image/m2.jpg", location: "لندن" },
+  { img: "/image/m2.jpg", location: "سوییس" },
+  { img: "/image/m2.jpg", location: "تگزاس" },
+  { img: "/image/m2.jpg", location: "دوبی" },
+  { img: "/image/m2.jpg", location: "آنکارا" },
+  { img: "/image/m2.jpg", location: "آنتالیا" },
+  { img: "/image/m2.jpg", location: "مشهد" },
+  { img: "/image/m2.jpg", location: "بیرجند" },
+  { img: "/image/m2.jpg", location: "بجنورد" },
+  { img: "/image/m2.jpg", location: "بروجرد" },
 ];
 
 export const ctabutton = [
