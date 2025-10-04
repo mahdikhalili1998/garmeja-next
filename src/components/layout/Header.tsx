@@ -12,6 +12,7 @@ import { BsSearch } from "react-icons/bs";
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 import Link from "next/link";
 import { IoIosPerson } from "react-icons/io";
+import styles from "@/styles/header.module.css";
 
 function Header() {
   const [backgroundImg, setBackgroundImg] = useState<string>("");
@@ -80,7 +81,7 @@ function Header() {
       {openMenu ? (
         <span
           onClick={() => setOpenMenu(false)}
-          className={`text-iconColor absolute z-40 mt-14 -ml-1 flex h-10 w-8 cursor-pointer items-center justify-center rounded-l-full bg-white/60 pl-1 transition-transform duration-300 ${openMenu ? "-translate-x-52" : "translate-x-0"} `}
+          className={`text-iconColor 900:right-20 absolute z-40 mt-14 -ml-1 flex h-10 w-8 cursor-pointer items-center justify-center rounded-l-full bg-white/60 pl-1 transition-transform duration-300 ${openMenu ? "-translate-x-52" : "translate-x-0"} `}
         >
           <FaAnglesRight className="animate-move-left" />
         </span>
@@ -102,7 +103,7 @@ function Header() {
       {/* کشو */}
       <div
         ref={menuRef}
-        className={`fixed top-0 right-0 z-30 h-full w-52 transform bg-white/60 shadow-lg backdrop-blur-lg transition-transform duration-300 ${openMenu ? "translate-x-0" : "translate-x-full"} `}
+        className={`900:w-72 fixed top-0 right-0 z-30 h-full w-52 transform bg-white/60 shadow-lg backdrop-blur-lg transition-transform duration-300 ${openMenu ? "translate-x-0" : "translate-x-full"} `}
       >
         <div className="flex h-full flex-col">
           <Link
@@ -119,7 +120,9 @@ function Header() {
               </span>
             </div>
           </Link>
-          <div className="flex-1 space-y-3 overflow-y-auto p-4">
+          <div
+            className={`${styles.scrollbarHide} flex-1 space-y-3 overflow-y-auto p-4`}
+          >
             {menuOptionList.map((item, index) => (
               <Link
                 className="flex items-center gap-2 space-y-3"
