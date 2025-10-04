@@ -46,7 +46,7 @@ export default function LovelyPlace() {
                       width={120}
                       height={120}
                       alt={item.location}
-                      className="border-borderColor size-[5rem] rounded-full border-2 border-solid"
+                      className="border-borderColor size-[4.7rem] rounded-2xl border-2 border-solid"
                       priority
                     />
                     <div className="flex flex-col items-start gap-1">

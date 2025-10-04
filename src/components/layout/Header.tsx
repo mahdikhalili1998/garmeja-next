@@ -59,24 +59,28 @@ function Header() {
 
   return (
     <div
-      className="relative h-[32rem] bg-cover bg-center"
+      className="900:h-[48rem] relative h-[32rem] bg-black/20 bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundImg})` }}
     >
-      {/* گرادیانت بالایی */}
-      <div className="absolute top-0 right-0 left-0 h-32 bg-gradient-to-b from-blue-700/90 to-transparent"></div>
+      {/* لایه نیمه شفاف شیشه‌ای روی عکس */}
+      <div className="backdrop-blur-3xs bg-titleColor/5 absolute inset-0 z-0"></div>
 
+      {/* گرادیانت بالایی */}
+      <div className="from-titleColor/90 absolute top-0 right-0 left-0 h-64 bg-gradient-to-b to-transparent"></div>
       {/* لوگو */}
-      <div className="relative z-10">
+      <div className="relative z-10 flex flex-col items-center justify-center">
         <Image
           src="/image/logo.png"
           width={300}
           height={300}
           alt="logoGarmeja"
           priority
-          className="mx-auto size-[5rem]"
+          className="900:size-[8rem] mx-auto size-[5rem]"
         />
+        <p className="text-mainbg shadow-titleColor -mt-5 text-xl font-extrabold shadow-2xl">
+          یه جای گرم و نرم{" "}
+        </p>
       </div>
-
       {/* منوی کشویی */}
       {openMenu ? (
         <span
@@ -138,11 +142,22 @@ function Header() {
           </div>
         </div>
       </div>
-
+      {/* متن لوگو// */}
+      <div>
+        <h1 className="text-mainbg 900:block font-secondFont relative z-20 mt-14 hidden text-center text-[6rem]">
+          گـــرمــــه جــــا
+        </h1>
+        <p className="900:block 900:mt-5 900:text-xl 900:font-bold relative z-20 hidden text-center text-sm font-bold text-white">
+          اجاره کلبه جنگلی و ویلای لوکس استخردار در شمال ایران سرسبز
+        </p>
+      </div>
       {/* میانبرها و سرچ بار */}
-      <div className="440:w-[24rem] 900:w-[32rem] 440:mx-auto relative z-10 mx-4 mt-44 space-y-4">
+      <p className="900:hidden relative z-20 mt-28 text-center text-xs font-bold text-white">
+        اجاره کلبه جنگلی و ویلای لوکس استخردار در شمال ایران سرسبز
+      </p>
+      <div className="440:w-[24rem] 900:w-[32rem] 440:mx-auto 900:mt-16 relative z-10 mx-4 mt-8 space-y-4">
         {/* میانبرها */}
-        <div className="backdrop-blur-2xs flex items-center justify-between rounded-lg border-[1px] border-solid border-white bg-white/30 px-2 py-2">
+        <div className="backdrop-blur-2xs bg-titleColor/30 flex items-center justify-between rounded-lg border-[1px] border-solid border-white px-2 py-2">
           {headerShortcut.map((item, index) => (
             <div
               key={index}
@@ -154,7 +169,7 @@ function Header() {
           ))}
         </div>
         {/* سرچ بار */}
-        <div className="backdrop-blur-2xs flex items-center gap-1 rounded-lg border-[1px] border-solid border-white bg-white/30 px-3 py-2">
+        <div className="backdrop-blur-2xs bg-titleColor/30 flex items-center gap-1 rounded-lg border-[1px] border-solid border-white px-3 py-2">
           <input
             type="text"
             value={searchValue}
@@ -167,7 +182,7 @@ function Header() {
           </span>
         </div>
         {/* دکمه های cta  */}
-        <div className="flex items-center justify-around">
+        <div className="flex items-center justify-around pb-10">
           {ctabutton.map((item, index) => (
             <a
               href={`#${item.id}`}
@@ -189,6 +204,7 @@ function Header() {
           ))}
         </div>
       </div>
+      <div className="absolute right-0 bottom-0 left-0 h-28 rotate-180 bg-gradient-to-b from-white/100 to-transparent"></div>
     </div>
   );
 }

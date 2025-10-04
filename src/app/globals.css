@@ -6,11 +6,13 @@ html {
 
 @theme inline {
   --font-mainFont: "IRANSansXFaNum", sans-serif;
+  --font-secondFont: "saze", sans-serif;
   --blur-2xs: 2px;
+  --blur-3xs: 1px;
   --color-borderColor: oklch(64.6% 0.222 41.116); /*600*/
-  --color-mainbg: #fa5a2a;
+  --color-mainbg: #fb6b3f;
   --color-iconColor: #fa5a2a;
-  --color-titleColor: oklch(40.8% 0.123 38.172); /*900*/
+  --color-titleColor: #122c6d; /*900*/
   --breakpoint-440: 440px;
   --breakpoint-640: 640px;
   --breakpoint-900: 900px;
