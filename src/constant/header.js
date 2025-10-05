@@ -23,23 +23,39 @@ export const headerShortcut = [
 
 export const imageSrc = [
   "/image/bg-1.jpg",
+  "/image/bg-3.png",
   "/image/bg-4.jpg",
-  // "/image/bg-3.png",
+  "/image/bg-4.jpg",
+  "/image/bg-3.png",
+  "/image/bg-1.jpg",
 ];
 
 export const fakeLocation = [
-  { img: "/image/m2.jpg", location: "رشت" },
-  { img: "/image/m2.jpg", location: "لاهیجان" },
-  { img: "/image/m2.jpg", location: "لندن" },
-  { img: "/image/m2.jpg", location: "سوییس" },
-  { img: "/image/m2.jpg", location: "تگزاس" },
-  { img: "/image/m2.jpg", location: "دوبی" },
-  { img: "/image/m2.jpg", location: "آنکارا" },
-  { img: "/image/m2.jpg", location: "آنتالیا" },
-  { img: "/image/m2.jpg", location: "مشهد" },
-  { img: "/image/m2.jpg", location: "بیرجند" },
-  { img: "/image/m2.jpg", location: "بجنورد" },
-  { img: "/image/m2.jpg", location: "بروجرد" },
+  { img: "/image/chaboksar.jpg", location: "رشت" },
+  { img: "/image/gardaneHeyran.jpg", location: "لاهیجان" },
+  { img: "/image/savadKoh.jpg", location: "لندن" },
+  { img: "/image/chaboksar.jpg", location: "سوییس" },
+  { img: "/image/gardaneHeyran.jpg", location: "تگزاس" },
+  { img: "/image/savadKoh.jpg", location: "دوبی" },
+  { img: "/image/chaboksar.jpg", location: "آنکارا" },
+  { img: "/image/gardaneHeyran.jpg", location: "آنتالیا" },
+  { img: "/image/chaboksar.jpg", location: "مشهد" },
+  { img: "/image/savadKoh.jpg", location: "بیرجند" },
+  { img: "/image/gardaneHeyran.jpg", location: "بجنورد" },
+  { img: "/image/chaboksar.jpg", location: "بروجرد" },
+];
+
+export const fakeLocations = [
+  { img: "/image/chaboksar.jpg", location: "جنگلی" },
+  { img: "/image/gardaneHeyran.jpg", location: "کلبه سوییسی" },
+  { img: "/image/savadKoh.jpg", location: "ویو جهنمی" },
+  { img: "/image/chaboksar.jpg", location: "ویو بهشتی" },
+  { img: "/image/gardaneHeyran.jpg", location: "ویو ابدی" },
+  { img: "/image/savadKoh.jpg", location: "ویو عشق ابدی" },
+  { img: "/image/chaboksar.jpg", location: "یه ویو دیگ" },
+  { img: "/image/gardaneHeyran.jpg", location: "ویو مشهدی" },
+  { img: "/image/chaboksar.jpg", location: "ویو یزدی" },
+  { img: "/image/savadKoh.jpg", location: "ویو خامه ای" },
 ];
 
 export const ctabutton = [

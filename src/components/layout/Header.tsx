@@ -152,7 +152,7 @@ function Header() {
         </p>
       </div>
       {/* میانبرها و سرچ بار */}
-      <p className="900:hidden relative z-20 mt-28 text-center text-xs font-bold text-white">
+      <p className="900:hidden relative mt-28 text-center text-xs font-bold text-white">
         اجاره کلبه جنگلی و ویلای لوکس استخردار در شمال ایران سرسبز
       </p>
       <div className="440:w-[24rem] 900:w-[32rem] 440:mx-auto 900:mt-16 relative z-10 mx-4 mt-8 space-y-4">
