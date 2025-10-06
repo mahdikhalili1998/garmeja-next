@@ -23,7 +23,7 @@ const bioText =
 
 const detailOfCategory = [
   {
-    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg", ""],
+    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg"],
     title: "یه جای خوب که غم نباشه با ویوی نابی مخصوص نوشیدن",
     price: 3000000,
     option: ["2 خوابه", "شراب نابی", "کنیز  مفلوک"],
@@ -31,7 +31,7 @@ const detailOfCategory = [
     comment: 3,
   },
   {
-    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg", ""],
+    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg"],
     title: "یه جای خوب که غم نباشه با ویوی نابی مخصوص نوشیدن",
     price: 3000000,
     option: ["2 خوابه", "شراب نابی", "کنیز  مفلوک"],
@@ -39,7 +39,7 @@ const detailOfCategory = [
     comment: 3,
   },
   {
-    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg", ""],
+    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg"],
     title: "یه جای خوب که غم نباشه با ویوی نابی مخصوص نوشیدن",
     price: 3000000,
     option: ["2 خوابه", "شراب نابی", "کنیز  مفلوک"],
@@ -47,7 +47,7 @@ const detailOfCategory = [
     comment: 3,
   },
   {
-    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg", ""],
+    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg"],
     title: "یه جای خوب که غم نباشه با ویوی نابی مخصوص نوشیدن",
     price: 3000000,
     option: ["2 خوابه", "شراب نابی", "کنیز  مفلوک"],
@@ -55,7 +55,7 @@ const detailOfCategory = [
     comment: 3,
   },
   {
-    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg", ""],
+    imag: ["/image/bg-1.jpg", "/image/bg-3.png", "/image/bg-4.jpg"],
     title: "یه جای خوب که غم نباشه با ویوی نابی مخصوص نوشیدن",
     price: 3000000,
     option: ["2 خوابه", "شراب نابی", "کنیز  مفلوک"],
@@ -64,4 +64,18 @@ const detailOfCategory = [
   },
 ];
 
-export { lottieFileJson, footerLink, bioText, detailOfCategory };
+// برای بک گراند هر کارت
+const colors = [
+  "#ef4444", // bg-red-500
+  "#3b82f6", // bg-blue-500
+  "#22c55e", // bg-green-500
+  "#eab308", // bg-yellow-500
+  "#a855f7", // bg-purple-500
+  "#ec4899", // bg-pink-500
+  "#6366f1", // bg-indigo-500
+  "#f97316", // bg-orange-500
+  "#14b8a6", // bg-teal-500
+  "#6b7280", // bg-gray-500
+];
+
+export { lottieFileJson, footerLink, colors, bioText, detailOfCategory };

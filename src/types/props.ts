@@ -3,3 +3,12 @@ export interface IIcon {
   height: number;
   stroke?: string;
 }
+
+export interface ILocationInfo {
+  imag: string[];
+  title: string;
+  price: number;
+  option?: string[];
+  comment: number;
+  ownerImg: string;
+}

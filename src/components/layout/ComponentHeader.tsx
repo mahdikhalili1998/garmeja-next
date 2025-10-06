@@ -152,7 +152,7 @@ function ComponentHeader() {
       </div>
 
       {/*  بخش پایین (فوتر فیکس‌شده) */}
-      <div className="bg-mainbg fixed right-0 bottom-0 w-full">
+      <div className="bg-mainbg fixed right-0 bottom-0 z-10 w-full">
         <div className="relative flex items-center justify-around gap-24 py-1 text-xs font-semibold text-white">
           {/* فقط وقتی فیلتر بسته است */}
           {!openFilter && (
