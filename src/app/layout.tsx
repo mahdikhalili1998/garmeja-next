@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "@/styles/iranSans.css";
-import Layout from "@/components/layout/Layout";
 import "@/styles/garmeja.css";
 
 export const metadata: Metadata = {
@@ -11,14 +10,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={"font-mainFont"}>
-        <Layout>{children} </Layout>
-      </body>
+      <body className="font-mainFont">{children}</body>
     </html>
   );
 }

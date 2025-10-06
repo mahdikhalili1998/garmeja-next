@@ -10,6 +10,7 @@ import type { Swiper as SwiperClass } from "swiper";
 import styles from "@/styles/lovelyPlace.module.css";
 import { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Link from "next/link";
 
 export default function LovelyPlace() {
   const chunked = [];
@@ -46,7 +47,8 @@ export default function LovelyPlace() {
               <SwiperSlide key={index}>
                 <div className="grid w-[10rem] grid-cols-1 gap-4">
                   {group.map((item, i) => (
-                    <div
+                    <Link
+                      href={`/location/${decodeURIComponent(item.location)}`}
                       key={i}
                       className="flex items-center gap-2 rounded-lg text-black"
                     >
@@ -65,7 +67,7 @@ export default function LovelyPlace() {
                         </span>
                         <span className="text-xs">10097 اقامتگاه</span>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </SwiperSlide>

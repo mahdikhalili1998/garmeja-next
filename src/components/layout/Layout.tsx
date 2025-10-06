@@ -3,12 +3,12 @@ import { LayoutProps } from "@/types/LayoutProps";
 import Header from "./Header";
 import Footer from "./Footer";
 
-function Layout({ children }: LayoutProps) {
+function Layout() {
   return (
     <div>
-      <Header />
+      {/* <Header />
       <div className="mx-5">{children}</div>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }

@@ -81,6 +81,7 @@ function Header() {
           یه جای گرم و نرم{" "}
         </p>
       </div>
+
       {/* منوی کشویی */}
       {openMenu ? (
         <span
@@ -142,6 +143,7 @@ function Header() {
           </div>
         </div>
       </div>
+
       {/* متن لوگو// */}
       <div>
         <h1 className="text-mainbg 900:block font-secondFont relative z-20 mt-14 hidden text-center text-[6rem]">
