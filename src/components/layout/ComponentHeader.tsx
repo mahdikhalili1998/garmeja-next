@@ -12,6 +12,7 @@ import { IoIosPerson } from "react-icons/io";
 import { MdHome, MdFilterAlt } from "react-icons/md";
 import { GrSort } from "react-icons/gr";
 import { BsChevronDoubleDown } from "react-icons/bs";
+import FilterValue from "../module/FilterValue";
 
 function ComponentHeader() {
   const [searchValue, setSearchValue] = useState<string>("");
@@ -45,7 +46,18 @@ function ComponentHeader() {
   }, [openMenu, openFilter]);
 
   return (
-    <div className="mt-4 mb-8">
+    <div
+      className="relative h-64 bg-cover bg-center"
+      style={{ backgroundImage: "url('/image/rasht.jpg')" }}
+    >
+      {/* گرادیانت بالایی */}
+      <div className="absolute right-0 bottom-0 left-0 h-44 rotate-180 bg-gradient-to-b from-black/70 to-transparent"></div>
+      <p className="absolute right-5 bottom-3 w-[90%] text-xs text-white">
+        رشت شهر بارون های نقره ایه! باید یه شب که بارون تازه بند اومده با هم
+        سفرهات میدون شهرداری باشی، یه پلاکباب خودتو مهمون کنی و بعدم یه چایی
+        آلبالویی بزنی تا مطمئن بشی رشت با همه جای دنیا فرق میکنه
+      </p>
+
       <div className="flex w-full items-center justify-between">
         {/* منو */}
         <div onClick={() => setOpenMenu(true)} className="-mx-3">
@@ -89,12 +101,13 @@ function ComponentHeader() {
       </div>
 
       {/* Overlay منو */}
-      {openMenu && (
-        <div
-          className="fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
-          onClick={() => setOpenMenu(false)}
-        ></div>
-      )}
+      {openMenu ||
+        (openFilter && (
+          <div
+            className="fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
+            onClick={() => setOpenMenu(false)}
+          ></div>
+        ))}
 
       {/* کشوی منو */}
       <div
@@ -151,10 +164,8 @@ function ComponentHeader() {
         </div>
       </div>
 
-      {/*  بخش پایین (فوتر فیکس‌شده) */}
-      <div className="bg-mainbg fixed right-0 bottom-0 z-10 w-full">
+      {/* <div className="bg-mainbg fixed right-0 bottom-0 z-10 w-full">
         <div className="relative flex items-center justify-around gap-24 py-1 text-xs font-semibold text-white">
-          {/* فقط وقتی فیلتر بسته است */}
           {!openFilter && (
             <>
               <span className="flex flex-col items-center justify-center gap-2">
@@ -181,13 +192,11 @@ function ComponentHeader() {
         </div>
       </div>
 
-      {/*  محتوای فیلتر (Drawer از پایین) */}
       <div
         className={`fixed right-0 bottom-0 left-0 z-20 h-[70%] rounded-t-2xl bg-white shadow-lg transition-transform duration-500 ease-in-out ${
           openFilter ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        {/* دکمه بستن فیلتر */}
         <div
           className={`absolute left-1/2 -translate-x-1/2 transform transition-all duration-500 ${
             openFilter ? "-top-6 opacity-100" : "top-20 opacity-0"
@@ -201,11 +210,10 @@ function ComponentHeader() {
           </span>
         </div>
 
-        {/* اینجا محتوای فیلترت */}
         <div className="bg-mainbg h-full overflow-y-auto p-6 text-center text-gray-600">
-          محتوای فیلتر اینجاست...
+          <FilterValue />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

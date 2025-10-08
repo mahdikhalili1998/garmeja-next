@@ -5,10 +5,11 @@ export interface IIcon {
 }
 
 export interface ILocationInfo {
-  imag: string[];
+  imag: string;
   title: string;
   price: number;
   option?: string[];
   comment: number;
   ownerImg: string;
+  rate: number;
 }

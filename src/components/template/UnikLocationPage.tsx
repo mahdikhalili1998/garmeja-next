@@ -14,29 +14,36 @@ function UnikLocationPage() {
   }, []);
 
   return (
-    <div>
+    <div className="relative">
       <ComponentHeader />
-      {!locationInfo.length ? (
-        <div className="mx-auto mt-24 w-max">
-          <SyncLoader color="#fa5a2a" />
-        </div>
-      ) : (
-        locationInfo.map((item, index) => {
-          const randomColor = colors[Math.floor(Math.random() * colors.length)];
-          return (
-            <div
-              style={{
-                backgroundColor: randomColor, // رنگ بک‌گراند
-                boxShadow: `0 10px 15px -3px ${randomColor}80`, // شادو با opacity کمتر (80 در hex ≈ 50%)
-              }}
-              className={`mx-3 mt-14 rounded-lg px-4 pt-10 opacity-75 shadow-xl`}
-              key={index}
-            >
-              <LocationCard {...item} randomColor={randomColor} />
-            </div>
-          );
-        })
-      )}
+      <div className="shadow-titleColor bg-mainbg absolute top-[250px] z-30 mx-auto h-10 w-full shadow-xl"></div>
+      <div className="mt-20 flex flex-col gap-20 pb-28">
+        {!locationInfo.length ? (
+          <div className="mx-auto mt-24 w-max">
+            <SyncLoader color="#fa5a2a" />
+          </div>
+        ) : (
+          locationInfo.map((item, index) => {
+            const randomColor =
+              colors[Math.floor(Math.random() * colors.length)];
+            return (
+              <div
+                className={`backdrop-blur-3xs relative mx-3 rounded-lg pb-1 shadow-xl`}
+                key={index}
+              >
+                {/* گرادیانت بالایی */}
+                <div className="from-titleColor/65 absolute top-0 right-0 left-0 h-36 rounded-lg bg-gradient-to-b to-white"></div>
+                {/* گرادیانت پایینی */}
+                <div className="from-titleColor absolute right-0 -bottom-4 left-0 h-24 rotate-180 rounded-lg bg-gradient-to-b to-transparent"></div>
+                {/* لایه نیمه شفاف شیشه‌ای روی عکس */}
+                <div className="backdrop-blur-3xs bg-titleColor/5 absolute inset-0 z-0"></div>
+
+                <LocationCard {...item} randomColor={randomColor} />
+              </div>
+            );
+          })
+        )}
+      </div>
     </div>
   );
 }

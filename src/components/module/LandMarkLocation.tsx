@@ -48,7 +48,7 @@ function LandMarkLocation() {
                   className="h-auto rounded-lg"
                 />
                 {/* فید  */}
-                <div className="absolute bottom-0 left-0 h-16 w-full rounded-b-lg bg-gradient-to-t from-blue-700/80 to-transparent"></div>
+                <div className="from-titleColor/95 absolute bottom-0 left-0 h-16 w-full rounded-b-lg bg-gradient-to-t to-transparent"></div>
 
                 {/* متن روی فید */}
                 <span className="absolute bottom-2 left-2 text-sm font-bold text-white">
