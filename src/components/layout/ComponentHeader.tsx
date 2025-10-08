@@ -9,15 +9,15 @@ import Link from "next/link";
 import { menuOptionList } from "@/constant/header";
 import styles from "@/styles/header.module.css";
 import { IoIosPerson } from "react-icons/io";
-import { MdHome, MdFilterAlt } from "react-icons/md";
-import { GrSort } from "react-icons/gr";
-import { BsChevronDoubleDown } from "react-icons/bs";
-import FilterValue from "../module/FilterValue";
+// import { MdHome, MdFilterAlt } from "react-icons/md";
+// import { GrSort } from "react-icons/gr";
+// import { BsChevronDoubleDown } from "react-icons/bs";
+// import FilterValue from "../module/FilterValue";
 
 function ComponentHeader() {
   const [searchValue, setSearchValue] = useState<string>("");
   const [openMenu, setOpenMenu] = useState<boolean>(false);
-  const [openFilter, setOpenFilter] = useState<boolean>(false); // 👈 کنترل باز بودن فیلتر
+  // const [openFilter, setOpenFilter] = useState<boolean>(false); // 👈 کنترل باز بودن فیلتر
   const menuRef = useRef<HTMLDivElement>(null);
 
   // بستن کشو با کلیک بیرون
@@ -39,11 +39,11 @@ function ComponentHeader() {
 
   // جلوگیری از اسکرول هنگام باز بودن کشو
   useEffect(() => {
-    document.body.style.overflow = openMenu || openFilter ? "hidden" : "auto";
+    document.body.style.overflow = openMenu ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [openMenu, openFilter]);
+  }, [openMenu]);
 
   return (
     <div
@@ -101,13 +101,12 @@ function ComponentHeader() {
       </div>
 
       {/* Overlay منو */}
-      {openMenu ||
-        (openFilter && (
-          <div
-            className="fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
-            onClick={() => setOpenMenu(false)}
-          ></div>
-        ))}
+      {openMenu && (
+        <div
+          className="fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
+          onClick={() => setOpenMenu(false)}
+        ></div>
+      )}
 
       {/* کشوی منو */}
       <div
