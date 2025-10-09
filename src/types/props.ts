@@ -13,3 +13,10 @@ export interface ILocationInfo {
   ownerImg: string;
   rate: number;
 }
+
+export interface IFilter {
+  openFilter: boolean;
+  openSort: boolean;
+  setOpenFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenSort: React.Dispatch<React.SetStateAction<boolean>>;
+}
