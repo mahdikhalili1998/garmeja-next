@@ -38,7 +38,7 @@ const FilterPage: FC<IFilter> = ({
   return (
     <>
       {/* دکمه‌های فیلتر و مرتب‌سازی */}
-      <div className="border-mainbg text-mainbg mx-auto mt-6 flex w-max items-center justify-around gap-28 rounded-2xl border-1 px-2 py-3 text-sm font-bold">
+      <div className="border-mainbg text-titleColor bg-mainbg mx-auto mt-6 flex w-max items-center justify-around gap-28 rounded-2xl border-1 px-2 py-3 text-sm font-bold">
         <span
           onClick={() => setOpenFilter((prev) => !prev)}
           className="flex cursor-pointer items-center gap-2"

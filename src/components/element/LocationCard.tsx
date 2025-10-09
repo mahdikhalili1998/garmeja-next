@@ -38,9 +38,9 @@ const LocationCard: FC<ILocationInfo> = ({
           className="h-auto w-full rounded-lg"
         />
         {/* فید سفید-سفید */}
-        <div className="absolute -bottom-10 left-0 z-10 h-24 w-full rounded-t-lg bg-gradient-to-b from-white/10 via-white/85 to-white/[4px] backdrop-blur-[0.2px]"></div>
+        <div className="absolute -bottom-10 left-0 z-10 h-24 w-full rounded-t-lg bg-gradient-to-b from-white/[4px] via-white/85 to-white/[4px] backdrop-blur-[0.2px]"></div>
 
-        <h1 className="absolute right-0 -bottom-1 z-20 -mt-5 mr-4 w-max pb-3 font-bold text-white">
+        <h1 className="text-titleColor absolute right-0 -bottom-1 z-20 -mt-5 mr-4 w-max pb-3 font-bold">
           {shortText(title)}
         </h1>
       </div>
