@@ -50,14 +50,6 @@ function ComponentHeader() {
       className="relative h-64 bg-cover bg-center"
       style={{ backgroundImage: "url('/image/rasht.jpg')" }}
     >
-      {/* گرادیانت بالایی */}
-      <div className="absolute right-0 bottom-0 left-0 h-44 rotate-180 bg-gradient-to-b from-black/70 to-transparent"></div>
-      <p className="absolute right-5 bottom-3 w-[90%] text-xs text-white">
-        رشت شهر بارون های نقره ایه! باید یه شب که بارون تازه بند اومده با هم
-        سفرهات میدون شهرداری باشی، یه پلاکباب خودتو مهمون کنی و بعدم یه چایی
-        آلبالویی بزنی تا مطمئن بشی رشت با همه جای دنیا فرق میکنه
-      </p>
-
       <div className="flex w-full items-center justify-between">
         {/* منو */}
         <div onClick={() => setOpenMenu(true)} className="-mx-3">
@@ -99,6 +91,11 @@ function ComponentHeader() {
           />
         </div>
       </div>
+      <p className="text-titleColor absolute bottom-2 left-[5%] z-10 w-[90%] text-xs font-bold">
+        رشت شهر بارون های نقره ایه! باید یه شب که بارون تازه بند اومده با هم
+        سفرهات میدون شهرداری باشی، یه پلاکباب خودتو مهمون کنی و بعدم یه چایی
+        آلبالویی بزنی تا مطمئن بشی رشت با همه جای دنیا فرق میکنه
+      </p>
 
       {/* Overlay منو */}
       {openMenu && (
