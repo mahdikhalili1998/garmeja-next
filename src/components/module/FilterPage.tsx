@@ -38,7 +38,9 @@ const FilterPage: FC<IFilter> = ({
   return (
     <>
       {/* دکمه‌های فیلتر و مرتب‌سازی */}
-      <div className="border-mainbg text-titleColor bg-mainbg mx-auto mt-6 flex w-max items-center justify-around gap-28 rounded-2xl border-1 px-2 py-3 text-sm font-bold">
+      <div
+        className={`${openFilter || openSort ? 'backdrop-blur-[6px]" inset-0 bg-black/20' : null} border-mainbg text-titleColor bg-mainbg mx-auto mt-6 flex w-max items-center justify-around gap-28 rounded-2xl border-1 px-2 py-3 text-sm font-bold`}
+      >
         <span
           onClick={() => setOpenFilter((prev) => !prev)}
           className="flex cursor-pointer items-center gap-2"
@@ -73,34 +75,13 @@ const FilterPage: FC<IFilter> = ({
                 setOpenFilter(false);
                 setOpenSort(false);
               }}
-              className="absolute top-3 left-3 text-gray-500 hover:text-black"
+              className="absolute top-3 left-3 text-red-500 hover:text-black"
             >
               ✕
             </button>
 
             {/* محتوای فیلتر */}
-            {openFilter && (
-              <div>
-                <h2 className="text-mainbg mb-4 text-lg font-bold">
-                  فیلتر اقامتگاه‌ها
-                </h2>
-                <div className="space-y-3 text-sm text-gray-600">
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" /> دارای صبحانه
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" /> حیوان خانگی مجاز
-                  </label>
-                  <label className="flex items-center gap-2">
-                    <input type="checkbox" /> استخر دارد
-                  </label>
-
-                  <button className="bg-mainbg mt-4 w-full rounded-lg py-2 font-bold text-white">
-                    اعمال فیلتر
-                  </button>
-                </div>
-              </div>
-            )}
+            {openFilter && <div></div>}
 
             {/* محتوای مرتب‌سازی */}
             {openSort && (
