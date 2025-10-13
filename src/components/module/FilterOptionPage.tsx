@@ -5,19 +5,20 @@ import { info } from "@/constant/FilterOptionInfo";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import H1FilterOptionPage from "../element/H1FilterOptionPage";
-import { IFilter } from "@/types/props";
 import { IoCloseCircle } from "react-icons/io5";
 import { detailOfCategory } from "@/constant/other";
 import { useRouter } from "next/navigation";
+import { IFilterOptionPage } from "@/types/props";
 
-const FilterOptionPage: FC<IFilter> = ({ setOpenFilter }) => {
-  const [rulesValue, setRulesValue] = useState<string[] | null>([]); // قوانین
-  const [typeValue, setTypeValue] = useState<string[] | null>([]); // نوع اقامتگاه
-  const [rentalType, setRentaltype] = useState<string[] | null>([]); // نوع اجاره
-  const [location, setLocation] = useState<string[] | null>([]); // منطقه اقامتگاه
-  const [features, setFeatures] = useState<string[] | null>([]); // امکانات اقامتگاه
-  const [attribute, setAttribute] = useState<string[] | null>([]); // ویژگی اقامتگاه
-  const [values, setValues] = useState<[number, number] | null>(); // بازه قیمت
+const FilterOptionPage: FC<IFilterOptionPage> = ({ setOpenFilter }) => {
+  const [rulesValue, setRulesValue] = useState<string[]>([]); // قوانین
+  const [typeValue, setTypeValue] = useState<string[]>([]); // نوع اقامتگاه
+  const [rentalType, setRentaltype] = useState<string[]>([]); // نوع اجاره
+  const [location, setLocation] = useState<string[]>([]); // منطقه اقامتگاه
+  const [features, setFeatures] = useState<string[]>([]); // امکانات اقامتگاه
+  const [attribute, setAttribute] = useState<string[]>([]); // ویژگی اقامتگاه
+  const [values, setValues] = useState<[number, number] | null>(null);
+  // بازه قیمت
   const [openOption, setOpenOption] = useState<string[]>([]); // برای باز شدن حالت کشویی
   const [number, setNumber] = useState<number>(1); // برای تعداد نفرات
   const [roomNumber, setRoomNumber] = useState<number>(0);
@@ -129,7 +130,7 @@ const FilterOptionPage: FC<IFilter> = ({ setOpenFilter }) => {
     if (bedNumber) params.set("bedNumber", bedNumber.toString());
     if (roomNumber) params.set("roomNumber", roomNumber.toString());
 
-    router.push(`?${params.toString()}`, { shallow: true });
+    router.push(`?${params.toString()}`);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

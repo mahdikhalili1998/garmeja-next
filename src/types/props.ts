@@ -18,10 +18,14 @@ export interface ILocationInfo {
 }
 
 export interface IFilter {
-  openFilter?: boolean;
-  openSort?: boolean;
-  setOpenFilter?: React.Dispatch<React.SetStateAction<boolean>>;
-  setOpenSort?: React.Dispatch<React.SetStateAction<boolean>>;
+  openFilter: boolean;
+  openSort: boolean;
+  setOpenFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenSort: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface IFilterOptionPage {
+  setOpenFilter: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IH1 {
