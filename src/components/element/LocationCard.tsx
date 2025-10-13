@@ -10,7 +10,7 @@ const LocationCard: FC<ILocationInfo> = ({
   imag,
   price,
   title,
-  option,
+  homeInfo,
   ownerImg,
   rate,
 }) => {
@@ -38,9 +38,9 @@ const LocationCard: FC<ILocationInfo> = ({
           className="h-auto w-full rounded-lg"
         />
         {/* فید سفید-سفید */}
-        <div className="absolute -bottom-10 left-0 z-10 h-24 w-full rounded-t-lg bg-gradient-to-b from-white/[4px] via-white/85 to-white/[4px] backdrop-blur-[0.2px]"></div>
+        <div className="absolute -bottom-10 left-0 z-2 h-24 w-full rounded-t-lg bg-gradient-to-b from-white/[4px] via-white/85 to-white/[4px] backdrop-blur-[0.2px]"></div>
 
-        <h1 className="text-titleColor absolute right-0 -bottom-1 z-20 -mt-5 mr-4 w-max pb-3 font-bold">
+        <h1 className="text-titleColor absolute right-0 -bottom-1 z-10 -mt-5 mr-4 w-max pb-3 font-bold">
           {shortText(title)}
         </h1>
       </div>
@@ -48,13 +48,13 @@ const LocationCard: FC<ILocationInfo> = ({
       {/* امکانات و ستاره */}
       <div className="-mt-1 flex justify-around">
         <ul className="divide-mainbg flex items-center justify-start divide-x text-sm font-semibold">
-          {option?.map((item, index) => (
+          {homeInfo?.map((item, index) => (
             <li key={index} className="px-2 text-white">
               {item}
             </li>
           ))}
         </ul>
-        <div className="z-20 flex flex-col items-center gap-1 text-white">
+        <div className="z-2 flex flex-col items-center gap-1 text-white">
           <span>{rate} از 5 </span>
           <div className="flex w-fit">
             <TbOvalVertical />

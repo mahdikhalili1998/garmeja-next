@@ -100,7 +100,7 @@ function ComponentHeader() {
       {/* Overlay منو */}
       {openMenu && (
         <div
-          className="fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
+          className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm"
           onClick={() => setOpenMenu(false)}
         ></div>
       )}
@@ -108,7 +108,7 @@ function ComponentHeader() {
       {/* کشوی منو */}
       <div
         ref={menuRef}
-        className={`900:w-72 fixed top-0 right-0 z-30 h-full w-52 transform bg-white/60 shadow-lg backdrop-blur-lg transition-transform duration-300 ${
+        className={`900:w-72 fixed top-0 right-0 z-50 h-full w-52 transform bg-white/60 shadow-lg backdrop-blur-lg transition-transform duration-300 ${
           openMenu ? "translate-x-0" : "translate-x-full"
         } `}
       >

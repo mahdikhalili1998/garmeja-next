@@ -22,11 +22,11 @@ function UnikLocationPage() {
       <ComponentHeader />
 
       {/* فید سفید-سفید */}
-      <div className="absolute top-[6%] right-0 left-0 h-28 rotate-180 bg-gradient-to-b from-white/100 to-transparent"></div>
+      <div className="absolute top-[6.3%] right-0 left-0 h-28 rotate-180 bg-gradient-to-b from-white/100 to-transparent"></div>
 
       {/* پس زمینه تار برای وقتی فیلتر یا سرت باز میشود  */}
       <div
-        className={`${openFilter || openSort ? "absolute inset-0 z-30 h-full w-full bg-black/20 backdrop-blur-[6px]" : null}`}
+        className={`${openFilter || openSort ? "absolute inset-0 z-11 h-full w-full bg-black/20 backdrop-blur-[6px]" : null}`}
         onClick={() => {
           setOpenFilter(false);
           setOpenSort(false);
@@ -35,7 +35,7 @@ function UnikLocationPage() {
 
       {/* کامپوننت فیلتر و مرتب سازی   */}
       <div
-        className={`${openFilter || openSort ? null : "sticky top-0 z-50 bg-white/80 backdrop-blur-sm"}`}
+        className={`${openFilter || openSort ? null : "sticky top-0 z-40 bg-white/80 backdrop-blur-sm"}`}
       >
         <FilterPage
           openFilter={openFilter}

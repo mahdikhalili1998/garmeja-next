@@ -3,6 +3,7 @@ import { IFilter } from "@/types/props";
 import React, { FC, useEffect, useState } from "react";
 import { FaAnglesRight, FaFilter } from "react-icons/fa6";
 import { GrSort } from "react-icons/gr";
+import FilterOptionPage from "./FilterOptionPage";
 
 const FilterPage: FC<IFilter> = ({
   openFilter,
@@ -62,26 +63,14 @@ const FilterPage: FC<IFilter> = ({
 
       {/* MODAL & OVERLAY */}
       {anyModalOpen && (
-        <div className="fixed inset-0 z-[1000] flex items-start justify-center">
-          {/* پس‌زمینه تار */}
-
+        <div className="fixed inset-0 z-13 flex items-start justify-center">
           {/* محتوای مودال */}
           <div
             id="modal-container"
-            className="animate-fadeIn relative z-[1001] mx-3 mt-20 w-[90%] max-w-md rounded-2xl bg-white p-6 shadow-lg"
+            className="animate-fadeIn relative z-20 mx-3 mt-10 max-h-[80vh] w-[90%] max-w-md overflow-y-auto rounded-2xl bg-white p-6 shadow-lg"
           >
-            <button
-              onClick={() => {
-                setOpenFilter(false);
-                setOpenSort(false);
-              }}
-              className="absolute top-3 left-3 text-red-500 hover:text-black"
-            >
-              ✕
-            </button>
-
             {/* محتوای فیلتر */}
-            {openFilter && <div></div>}
+            {openFilter && <FilterOptionPage setOpenFilter={setOpenFilter} />}
 
             {/* محتوای مرتب‌سازی */}
             {openSort && (
