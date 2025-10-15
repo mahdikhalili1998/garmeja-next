@@ -47,10 +47,10 @@ function ComponentHeader() {
 
   return (
     <div
-      className="relative h-64 bg-cover bg-center"
+      className="740:h-[21rem] 900:h-[full] relative h-64 bg-cover bg-center"
       style={{ backgroundImage: "url('/image/rasht.jpg')" }}
     >
-      <div className="flex w-full items-center justify-between">
+      <div className="900:w-[40%] 900:pt-4 900:mx-auto flex w-full items-center justify-between">
         {/* منو */}
         <div onClick={() => setOpenMenu(true)} className="-mx-3">
           <Lottie
@@ -91,7 +91,7 @@ function ComponentHeader() {
           />
         </div>
       </div>
-      <p className="text-titleColor absolute bottom-2 left-[5%] z-10 w-[90%] text-xs font-bold">
+      <p className="text-titleColor 1700:left-[1%] 1340:left-[3.4%] 1140:font-bold 1140:text-sm absolute bottom-2 left-[5%] z-10 w-[90%] text-xs font-bold">
         رشت شهر بارون های نقره ایه! باید یه شب که بارون تازه بند اومده با هم
         سفرهات میدون شهرداری باشی، یه پلاکباب خودتو مهمون کنی و بعدم یه چایی
         آلبالویی بزنی تا مطمئن بشی رشت با همه جای دنیا فرق میکنه

@@ -57,7 +57,7 @@ const SortPageOption: FC<ISortOptionPage> = ({
   return (
     <form onSubmit={handleSubmit} className="mr-2 space-y-4 font-bold">
       {/* دکمه‌های بالا */}
-      <div className="fixed top-10 right-6 mx-4 flex w-[80%] items-center justify-between rounded-lg bg-white py-4">
+      <div className="mx-4 flex items-center justify-between rounded-lg bg-white pb-4">
         <div className="flex items-center gap-1 text-sm">
           <button
             type="submit"
@@ -82,7 +82,7 @@ const SortPageOption: FC<ISortOptionPage> = ({
         </button>
       </div>
       {/* گزینه‌های مرتب‌سازی */}
-      <div className="text-titleColor mt-12 space-y-2 text-sm">
+      <div className="text-titleColor mt-4 space-y-2 text-sm">
         {sort.map((item, index) => {
           const isSelected =
             item.id === "dis" ? discountOnly : sortValue === item.id;

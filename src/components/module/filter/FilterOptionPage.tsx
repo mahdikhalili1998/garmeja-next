@@ -161,8 +161,8 @@ const FilterOptionPage: FC<IFilterOptionPage> = ({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mr-2 space-y-4 font-bold">
-      <div className="fixed top-10 right-2 mx-4 flex w-[80%] items-center justify-between rounded-lg bg-white py-4">
+    <form onSubmit={handleSubmit} className="relative mr-2 space-y-4 font-bold">
+      <div className="mx-1 flex items-center justify-between rounded-lg bg-white">
         <div className="flex items-center gap-1 text-sm">
           <button
             type="submit"
@@ -189,7 +189,7 @@ const FilterOptionPage: FC<IFilterOptionPage> = ({
       </div>
 
       {/* بازه ی قیمت */}
-      <div className="text-titleColor mx-auto mt-12 w-full max-w-sm rounded-2xl py-4">
+      <div className="text-titleColor mx-auto mt-8 w-full max-w-sm rounded-2xl py-4">
         <h3 className="text-mainbg mb-4 font-semibold">محدوده قیمت</h3>
         <div className="mb-3 flex justify-between text-sm">
           <span>

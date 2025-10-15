@@ -14,8 +14,14 @@ html {
   --color-iconColor: #fa5a2a;
   --color-titleColor: #122c6d; /*900*/
   --breakpoint-440: 440px;
+  --breakpoint-500: 500px;
+  --breakpoint-540: 540px;
   --breakpoint-640: 640px;
+  --breakpoint-740: 740px;
   --breakpoint-900: 900px;
+  --breakpoint-1140: 1140px;
+  --breakpoint-1340: 1340px;
+  --breakpoint-1700: 1700px;
 }
 
 @keyframes fadeIn {

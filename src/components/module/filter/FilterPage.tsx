@@ -65,7 +65,7 @@ const FilterPage: FC<IFilter> = ({
 
       {/* MODAL & OVERLAY */}
       {anyModalOpen && (
-        <div className="fixed inset-0 z-13 flex items-start justify-center">
+        <div className="740:mt-8 fixed inset-0 z-13 flex items-start justify-center">
           {/* محتوای مودال */}
           <div
             id="modal-container"
@@ -83,7 +83,7 @@ const FilterPage: FC<IFilter> = ({
 
             {/* محتوای مرتب‌سازی */}
             {openSort && (
-              <div className="relative">
+              <div className="">
                 <SortPageOption
                   setLocationInfo={setLocationInfo}
                   setOpenSort={setOpenSort}

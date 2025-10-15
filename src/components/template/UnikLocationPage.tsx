@@ -7,6 +7,7 @@ import { detailOfCategory } from "@/constant/other";
 import { ILocationInfo } from "@/types/props";
 import FilterPage from "../module/filter/FilterPage";
 import Footer from "../layout/Footer";
+import Pagination from "../module/Pagination";
 
 function UnikLocationPage() {
   const [locationInfo, setLocationInfo] = useState<ILocationInfo[]>([]);
@@ -41,7 +42,7 @@ function UnikLocationPage() {
       <ComponentHeader />
 
       {/* فید سفید-سفید */}
-      <div className="absolute top-[4.1%] right-0 left-0 h-32 rotate-180 bg-gradient-to-b from-white/100 to-transparent"></div>
+      <div className="1140:top-[10.1%] 1340:top-[9.9%] 900:top-[10.5%] 740:top-[7.9%] 440:top-[3.5%] absolute top-[3.8%] right-0 left-0 h-[16rem] bg-gradient-to-b from-white/[4px] via-white/100 to-white/[4px]"></div>
 
       {/* پس زمینه تار برای وقتی فیلتر یا سرت باز میشود  */}
       <div
@@ -68,7 +69,7 @@ function UnikLocationPage() {
       </div>
 
       {/* مربوط به کارت اقامت گاهاه  */}
-      <div className="mt-10 flex flex-col gap-20 pb-28">
+      <div className="740:grid 900:grid-cols-3 740:grid-cols-2 740:gap-x-8 mx-2 mt-10 flex flex-col gap-20 pb-28">
         {!locationInfo.length ? (
           <div className="mx-auto mt-24 w-max">
             <SyncLoader color="#fa5a2a" />
@@ -86,6 +87,7 @@ function UnikLocationPage() {
           })
         )}
       </div>
+      <Pagination />
 
       <div ref={footerRef}>
         <Footer />

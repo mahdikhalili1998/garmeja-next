@@ -39,7 +39,7 @@ const LocationCard: FC<ILocationInfo> = ({
         {/* فید سفید-سفید */}
         <div className="absolute -bottom-10 left-0 z-2 h-24 w-full rounded-t-lg bg-gradient-to-b from-white/[4px] via-white/85 to-white/[4px] backdrop-blur-[0.2px]"></div>
 
-        <h1 className="text-titleColor absolute right-0 -bottom-1 z-10 -mt-5 mr-4 w-max pb-3 font-bold">
+        <h1 className="text-titleColor 1140:text-base 900:text-sm absolute -right-2 -bottom-1 z-10 -mt-5 mr-4 w-max pb-3 font-bold">
           {shortText(title)}
         </h1>
       </div>
