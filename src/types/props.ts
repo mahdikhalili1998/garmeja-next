@@ -22,10 +22,16 @@ export interface IFilter {
   openSort: boolean;
   setOpenFilter: React.Dispatch<React.SetStateAction<boolean>>;
   setOpenSort: React.Dispatch<React.SetStateAction<boolean>>;
+  setLocationInfo: React.Dispatch<React.SetStateAction<ILocationInfo[]>>;
 }
 
 export interface IFilterOptionPage {
   setOpenFilter: React.Dispatch<React.SetStateAction<boolean>>;
+  setLocationInfo: React.Dispatch<React.SetStateAction<ILocationInfo[]>>;
+}
+export interface ISortOptionPage {
+  setOpenSort: React.Dispatch<React.SetStateAction<boolean>>;
+  setLocationInfo: React.Dispatch<React.SetStateAction<ILocationInfo[]>>;
 }
 
 export interface IH1 {

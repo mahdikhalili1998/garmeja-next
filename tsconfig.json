@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/module/FilterOptionPage.tsx",
+    "src/components/module/filter/FilterOptionPage.tsx",
     "src/components/module/Calender.jsx"
   ],
   "exclude": ["node_modules"]

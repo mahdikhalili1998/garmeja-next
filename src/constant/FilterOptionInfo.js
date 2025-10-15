@@ -1,5 +1,6 @@
 import {
   MdAcUnit,
+  MdOutlineDiscount,
   MdOutlinePets,
   MdOutlineWc,
   MdWbSunny,
@@ -36,6 +37,10 @@ import {
 } from "react-icons/fa";
 import { RiBilliardsFill } from "react-icons/ri";
 import { BiCloset } from "react-icons/bi";
+
+import { FaSortAmountDown } from "react-icons/fa";
+
+import { FaSortAmountDownAlt } from "react-icons/fa";
 
 const info = [
   {
@@ -121,4 +126,10 @@ const info = [
   },
 ];
 
-export { info };
+const sort = [
+  { title: "قیمت زیاد به کم", id: "mtl", icon: <FaSortAmountDown /> },
+  { title: "قیمت کم به زیاد", id: "ltm", icon: <FaSortAmountDownAlt /> },
+  { title: "تخفیف دار", id: "dis", icon: <MdOutlineDiscount /> },
+];
+
+export { info, sort };

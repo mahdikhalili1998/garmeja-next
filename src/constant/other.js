@@ -51,6 +51,7 @@ const detailOfCategory = [
     roomNumber: 3,
     bedNumber: 5,
     capicity: 4,
+    discount: 20,
   },
   {
     imag: "/image/bg-1.jpg",
@@ -82,6 +83,7 @@ const detailOfCategory = [
     roomNumber: 3,
     bedNumber: 5,
     capicity: 1,
+    discount: 10,
   },
   {
     imag: "/image/bg-1.jpg",
@@ -111,7 +113,8 @@ const detailOfCategory = [
     ],
     roomNumber: 3,
     bedNumber: 5,
-    capicity: 4,
+    capicity: 14,
+    discount: 0,
   },
   {
     imag: "/image/bg-1.jpg",
@@ -142,6 +145,7 @@ const detailOfCategory = [
     roomNumber: 3,
     bedNumber: 5,
     capicity: 12,
+    discount: 15,
   },
   {
     imag: "/image/bg-1.jpg",
@@ -171,7 +175,8 @@ const detailOfCategory = [
     ],
     roomNumber: 3,
     bedNumber: 5,
-    capicity: 4,
+    capicity: 6,
+    discount: 0,
   },
 ];
 

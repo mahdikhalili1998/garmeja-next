@@ -1,15 +1,17 @@
 "use client";
 import { IFilter } from "@/types/props";
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 import { FaAnglesRight, FaFilter } from "react-icons/fa6";
 import { GrSort } from "react-icons/gr";
 import FilterOptionPage from "./FilterOptionPage";
+import SortPageOption from "./SortPageOption";
 
 const FilterPage: FC<IFilter> = ({
   openFilter,
   openSort,
   setOpenFilter,
   setOpenSort,
+  setLocationInfo,
 }) => {
   const anyModalOpen = openFilter || openSort;
 
@@ -70,28 +72,22 @@ const FilterPage: FC<IFilter> = ({
             className="animate-fadeIn relative z-20 mx-3 mt-10 max-h-[80vh] w-[90%] max-w-md overflow-y-auto rounded-2xl bg-white p-6 shadow-lg"
           >
             {/* محتوای فیلتر */}
-            {openFilter && <FilterOptionPage setOpenFilter={setOpenFilter} />}
+            {openFilter && (
+              <div className="relative">
+                <FilterOptionPage
+                  setLocationInfo={setLocationInfo}
+                  setOpenFilter={setOpenFilter}
+                />
+              </div>
+            )}
 
             {/* محتوای مرتب‌سازی */}
             {openSort && (
-              <div>
-                <h2 className="text-mainbg mb-4 text-lg font-bold">
-                  مرتب‌سازی بر اساس
-                </h2>
-                <ul className="space-y-3 text-sm text-gray-600">
-                  <li className="hover:text-mainbg cursor-pointer">
-                    قیمت (کم به زیاد)
-                  </li>
-                  <li className="hover:text-mainbg cursor-pointer">
-                    قیمت (زیاد به کم)
-                  </li>
-                  <li className="hover:text-mainbg cursor-pointer">
-                    امتیاز کاربران
-                  </li>
-                  <li className="hover:text-mainbg cursor-pointer">
-                    محبوب‌ترین‌ها
-                  </li>
-                </ul>
+              <div className="relative">
+                <SortPageOption
+                  setLocationInfo={setLocationInfo}
+                  setOpenSort={setOpenSort}
+                />
               </div>
             )}
           </div>

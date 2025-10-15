@@ -1,8 +1,8 @@
-import LovelyPlace from "../module/LovelyPlace";
-import LandMarkLocation from "../module/LandMarkLocation";
-import CheapLocation from "../module/CheapLocation";
-import SiteFeature from "../module/SiteFeature";
-import CategoryPlaces from "../module/CategoryPlaces";
+import LovelyPlace from "../module/mainPage/LovelyPlace";
+import LandMarkLocation from "../module/mainPage/LandMarkLocation";
+import CheapLocation from "../module/mainPage/CheapLocation";
+import SiteFeature from "../module/mainPage/SiteFeature";
+import CategoryPlaces from "../module/mainPage/CategoryPlaces";
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
 

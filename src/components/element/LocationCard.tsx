@@ -6,7 +6,6 @@ import { formatNumber, shortText } from "@/functions/function";
 import { TbOvalVerticalFilled } from "react-icons/tb";
 
 const LocationCard: FC<ILocationInfo> = ({
-  comment,
   imag,
   price,
   title,

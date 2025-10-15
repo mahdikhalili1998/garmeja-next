@@ -1,17 +1,36 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ComponentHeader from "../layout/ComponentHeader";
 import LocationCard from "../element/LocationCard";
 import { SyncLoader } from "react-spinners";
 import { detailOfCategory } from "@/constant/other";
 import { ILocationInfo } from "@/types/props";
-import FilterPage from "../module/FilterPage";
+import FilterPage from "../module/filter/FilterPage";
+import Footer from "../layout/Footer";
 
 function UnikLocationPage() {
   const [locationInfo, setLocationInfo] = useState<ILocationInfo[]>([]);
 
   const [openFilter, setOpenFilter] = useState<boolean>(false);
   const [openSort, setOpenSort] = useState<boolean>(false);
+
+  const [hideFilterBar, setHideFilterBar] = useState<boolean>(false);
+  const footerRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!footerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setHideFilterBar(entry.isIntersecting); // اگه فوتر دیده شد، فیلتر مخفی میشه
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(footerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     setLocationInfo(detailOfCategory);
@@ -22,7 +41,7 @@ function UnikLocationPage() {
       <ComponentHeader />
 
       {/* فید سفید-سفید */}
-      <div className="absolute top-[6.3%] right-0 left-0 h-28 rotate-180 bg-gradient-to-b from-white/100 to-transparent"></div>
+      <div className="absolute top-[4.1%] right-0 left-0 h-32 rotate-180 bg-gradient-to-b from-white/100 to-transparent"></div>
 
       {/* پس زمینه تار برای وقتی فیلتر یا سرت باز میشود  */}
       <div
@@ -35,13 +54,16 @@ function UnikLocationPage() {
 
       {/* کامپوننت فیلتر و مرتب سازی   */}
       <div
-        className={`${openFilter || openSort ? null : "sticky top-0 z-40 bg-white/80 backdrop-blur-sm"}`}
+        className={`transition-all duration-300 ${
+          hideFilterBar ? "pointer-events-none opacity-0" : "opacity-100"
+        } ${openFilter || openSort ? "" : "sticky top-0 z-40 bg-white/80 backdrop-blur-sm"}`}
       >
         <FilterPage
           openFilter={openFilter}
           setOpenFilter={setOpenFilter}
           openSort={openSort}
           setOpenSort={setOpenSort}
+          setLocationInfo={setLocationInfo}
         />
       </div>
 
@@ -63,6 +85,10 @@ function UnikLocationPage() {
             );
           })
         )}
+      </div>
+
+      <div ref={footerRef}>
+        <Footer />
       </div>
     </div>
   );

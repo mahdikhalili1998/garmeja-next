@@ -4,21 +4,23 @@ import * as Slider from "@radix-ui/react-slider";
 import { info } from "@/constant/FilterOptionInfo";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import H1FilterOptionPage from "../element/H1FilterOptionPage";
+import H1FilterOptionPage from "../../element/H1FilterOptionPage";
 import { IoCloseCircle } from "react-icons/io5";
 import { detailOfCategory } from "@/constant/other";
 import { useRouter } from "next/navigation";
 import { IFilterOptionPage } from "@/types/props";
 
-const FilterOptionPage: FC<IFilterOptionPage> = ({ setOpenFilter }) => {
+const FilterOptionPage: FC<IFilterOptionPage> = ({
+  setOpenFilter,
+  setLocationInfo,
+}) => {
   const [rulesValue, setRulesValue] = useState<string[]>([]); // قوانین
   const [typeValue, setTypeValue] = useState<string[]>([]); // نوع اقامتگاه
   const [rentalType, setRentaltype] = useState<string[]>([]); // نوع اجاره
   const [location, setLocation] = useState<string[]>([]); // منطقه اقامتگاه
   const [features, setFeatures] = useState<string[]>([]); // امکانات اقامتگاه
   const [attribute, setAttribute] = useState<string[]>([]); // ویژگی اقامتگاه
-  const [values, setValues] = useState<[number, number] | null>(null);
-  // بازه قیمت
+  const [values, setValues] = useState<[number, number]>([0, 10000000]); // بازه قیمت
   const [openOption, setOpenOption] = useState<string[]>([]); // برای باز شدن حالت کشویی
   const [number, setNumber] = useState<number>(1); // برای تعداد نفرات
   const [roomNumber, setRoomNumber] = useState<number>(0);
@@ -45,7 +47,9 @@ const FilterOptionPage: FC<IFilterOptionPage> = ({ setOpenFilter }) => {
     setFeatures(features);
     setAttribute(attributes);
     setValues(
-      priceFrom && priceTo ? [Number(priceFrom), Number(priceTo)] : null,
+      priceFrom && priceTo
+        ? [Number(priceFrom), Number(priceTo)]
+        : [0, 10000000],
     );
   }, []);
 
@@ -113,6 +117,7 @@ const FilterOptionPage: FC<IFilterOptionPage> = ({ setOpenFilter }) => {
 
     // بروزرسانی state
     setFilteredHomes(result);
+    setLocationInfo(result);
 
     // بروزرسانی URL
     const params = new URLSearchParams();
@@ -136,30 +141,55 @@ const FilterOptionPage: FC<IFilterOptionPage> = ({ setOpenFilter }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     applyFilters();
-    console.log("فیلتر اعمال شد:", filteredHomes);
+    console.log(filteredHomes);
+  };
+
+  const deleteFilter = () => {
+    setRulesValue([]);
+    setTypeValue([]);
+    setRentaltype([]);
+    setLocation([]);
+    setFeatures([]);
+    setAttribute([]);
+    setValues([0, 10000000]);
+    setNumber(1);
+    setRoomNumber(0);
+    setBedNumber(0);
+    setFilteredHomes(detailOfCategory);
+    setLocationInfo(detailOfCategory);
+    router.push("?");
   };
 
   return (
     <form onSubmit={handleSubmit} className="mr-2 space-y-4 font-bold">
-      <div className="mx-4 flex items-center justify-between">
-        <button
-          type="submit"
-          className="bg-mainbg rounded-lg px-3 py-1 font-bold text-white"
-        >
-          اعمال فیلتر
-        </button>
+      <div className="fixed top-10 right-2 mx-4 flex w-[80%] items-center justify-between rounded-lg bg-white py-4">
+        <div className="flex items-center gap-1 text-sm">
+          <button
+            type="submit"
+            className="bg-mainbg rounded-lg px-2 py-1 font-bold text-white"
+          >
+            اعمال فیلتر
+          </button>
+          <button
+            type="button"
+            className="bg-titleColor rounded-lg px-2 py-1 font-bold text-white"
+            onClick={() => deleteFilter()}
+          >
+            حذف فیلترها
+          </button>
+        </div>
         <button
           onClick={() => {
             setOpenFilter(false);
           }}
-          className="absolute top-3 left-3 text-red-500 hover:text-black"
+          className="left-3 text-red-500 hover:text-black"
         >
           <IoCloseCircle className="text-4xl text-red-500" />
         </button>
       </div>
 
       {/* بازه ی قیمت */}
-      <div className="text-titleColor mx-auto w-full max-w-sm rounded-2xl py-4">
+      <div className="text-titleColor mx-auto mt-12 w-full max-w-sm rounded-2xl py-4">
         <h3 className="text-mainbg mb-4 font-semibold">محدوده قیمت</h3>
         <div className="mb-3 flex justify-between text-sm">
           <span>
