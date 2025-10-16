@@ -141,7 +141,7 @@ const FilterOptionPage: FC<IFilterOptionPage> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     applyFilters();
-    console.log(filteredHomes);
+    setOpenFilter(false);
   };
 
   const deleteFilter = () => {

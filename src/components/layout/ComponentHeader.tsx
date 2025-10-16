@@ -9,10 +9,6 @@ import Link from "next/link";
 import { menuOptionList } from "@/constant/header";
 import styles from "@/styles/header.module.css";
 import { IoIosPerson } from "react-icons/io";
-// import { MdHome, MdFilterAlt } from "react-icons/md";
-// import { GrSort } from "react-icons/gr";
-// import { BsChevronDoubleDown } from "react-icons/bs";
-// import FilterValue from "../module/FilterValue";
 
 function ComponentHeader() {
   const [searchValue, setSearchValue] = useState<string>("");

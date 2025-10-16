@@ -13,19 +13,39 @@ import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 import Link from "next/link";
 import { IoIosPerson } from "react-icons/io";
 import styles from "@/styles/header.module.css";
+import LoginModal from "../module/LoginModal";
+import { FiMenu } from "react-icons/fi";
 
 function Header() {
   const [backgroundImg, setBackgroundImg] = useState<string>("");
-  // const [backgroundImg] = useState(getRandomImage(imageSrc)); //تصویر تصادفی بک گراند
   const [searchValue, setSearchValue] = useState<string>(""); //مخصوص مقدار سرچ شده
   const [openMenu, setOpenMenu] = useState<boolean>(false); // مخصوص کشوی منو
   const menuRef = useRef<HTMLDivElement>(null);
+  const LoginModalref = useRef<HTMLDivElement>(null);
+  const [openLoginModal, setOpenLoginModal] = useState<boolean>(false); // مودال ثبت نام را باز میکند
+  const [userLogIn, setUserLogIn] = useState<boolean>(false); // چک کننده ی اینک کاربر عضو هست یا ن
 
+  // دکمه ی باز کردن مودال ثبت نام
+  const handleLoginClick = () => {
+    setOpenLoginModal(true);
+  };
+
+  // چک میکند ک کاربر عضو هست یا نه
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setUserLogIn(true);
+    } else {
+      setUserLogIn(false);
+    }
+  }, []);
+
+  // بک گراند را ست میکند
   useEffect(() => {
     setBackgroundImg(getRandomImage(imageSrc));
   }, []);
 
-  // بسته شدن کشو با کلیک خارج
+  // بسته شدن کشو با کلیک خارج برای کشوی منو
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -42,9 +62,29 @@ function Header() {
     };
   }, [openMenu]);
 
+  // برای مودال لاگین وقتی خارج از آن کلیک میشود
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        LoginModalref.current &&
+        !LoginModalref.current.contains(event.target as Node)
+      ) {
+        setOpenMenu(false);
+      }
+    }
+    if (openLoginModal) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [openLoginModal]);
+
   // جلو گیری از اسکرول زمان باز بودن کشو
   useEffect(() => {
-    if (openMenu) {
+    if (openMenu || openLoginModal) {
       // وقتی کشو باز است
       document.body.style.overflow = "hidden";
     } else {
@@ -55,7 +95,7 @@ function Header() {
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [openMenu]);
+  }, [openMenu, openLoginModal]);
 
   return (
     <div
@@ -98,12 +138,28 @@ function Header() {
           <FaAnglesLeft className="animate-move-left" />
         </span>
       )}
-      {/* Overlay */}
+      {/* Overlay for open menu */}
       {openMenu && (
         <div
           className="fixed inset-0 z-20 bg-black/20 backdrop-blur-sm"
           onClick={() => setOpenMenu(false)}
         ></div>
+      )}
+
+      {/* اور لی برای مودال ثبت نام   */}
+      {openLoginModal && (
+        <div
+          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
+          onClick={() => setOpenLoginModal(false)}
+        ></div>
+      )}
+      {openLoginModal && (
+        <div
+          ref={LoginModalref}
+          className="absolute right-[10%] z-41 w-[80%] rounded-lg"
+        >
+          <LoginModal />
+        </div>
       )}
       {/* کشو */}
       <div
@@ -157,19 +213,43 @@ function Header() {
       <p className="900:hidden relative mt-28 text-center text-xs font-bold text-white">
         اجاره کلبه جنگلی و ویلای لوکس استخردار در شمال ایران سرسبز
       </p>
+
       <div className="440:w-[24rem] 900:w-[32rem] 440:mx-auto 900:mt-16 relative z-10 mx-4 mt-8 space-y-4">
         {/* میانبرها */}
-        <div className="backdrop-blur-2xs bg-titleColor/30 flex items-center justify-between rounded-lg border-[1px] border-solid border-white px-2 py-2">
-          {headerShortcut.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center gap-2"
-            >
-              <span className="text-iconColor text-2xl">{item.icon}</span>
-              <span className="text-xs font-bold text-white">{item.title}</span>
-            </div>
-          ))}
+        <div className="backdrop-blur-2xs bg-titleColor/30 relative flex items-center justify-between rounded-lg border-[1px] border-solid border-white px-2 py-2">
+          {headerShortcut.map((item, index) => {
+            // اگه کاربر لاگین کرده و آیتم اول باشه (ثبت نام | ورود)
+            if (index === 0 && userLogIn) {
+              return (
+                <div
+                  key="user-menu"
+                  className="flex cursor-pointer flex-col items-center justify-center gap-2"
+                  onClick={() => setOpenMenu(true)} // یا هر کاری خواستی انجام بده
+                >
+                  <FiMenu className="text-iconColor text-2xl" />
+                  <span className="text-xs font-bold text-white">منوی من</span>
+                </div>
+              );
+            }
+
+            // حالت عادی (بقیه آیتم‌ها)
+            return (
+              <div
+                key={index}
+                onClick={
+                  item.title === "ثبت نام | ورود" ? handleLoginClick : undefined
+                }
+                className="flex cursor-pointer flex-col items-center justify-center gap-2"
+              >
+                <span className="text-iconColor text-2xl">{item.icon}</span>
+                <span className="text-xs font-bold text-white">
+                  {item.title}
+                </span>
+              </div>
+            );
+          })}
         </div>
+
         {/* سرچ بار */}
         <div className="backdrop-blur-2xs bg-titleColor/30 flex items-center gap-1 rounded-lg border-[1px] border-solid border-white px-3 py-2">
           <input
